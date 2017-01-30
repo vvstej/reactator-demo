@@ -1,0 +1,9 @@
+/bower_components
+/dist
+/doc
+/coverage
+/node_modules
+/.modules
+/out
+/jest
+/npm-debug.log

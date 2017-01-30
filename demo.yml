@@ -1,0 +1,97 @@
+#
+# Paths to add to NODE_PATH
+#
+paths:
+  - .
+  - ./node_modules
+
+#
+# Source directories for this project
+#
+sources:
+  - src
+
+#
+# See https://www.npmjs.com/package/gulp-sass
+#
+sass:
+  options:
+    sourceComments: true
+    sourceMap: true
+
+#
+# See https://www.npmjs.com/package/gulp-connect
+#
+connect:
+  port: 8080
+  livereload: true
+
+#
+# See https://www.npmjs.com/package/browserify
+#
+browserify:
+  debug: true
+  shim:
+    bootstrap:
+      path: node_modules/bootstrap/dist/js/bootstrap.js
+      exports: bootstrap
+      depends:
+        jquery: jQuery
+        tether: Tether
+
+#
+# Common configuration for all apps
+#
+common:
+  #
+  # Set of modules to be placed in the common.js
+  #
+  js:
+  - react
+  - react-dom
+  - react-router
+  - keymirror
+  - events
+  - jquery
+  - tether
+  - bluebird
+
+  #
+  # Set of files to be copied for all apps
+  #
+  copy:
+  - src: node_modules/font-awesome/fonts/*
+    dest: "/fonts"
+
+#
+# All app to build gulp targets for
+#
+apps:
+  #
+  # Demo app
+  #
+  demo:
+    # Source directory for the app
+    src: src
+
+    # Requires common functionality
+    common: true
+
+    # Fallback for the gulp-connect since we use react-router
+    fallback: dist/demo/index.html
+
+    # Lets have our index.html copied over
+    copy:
+    - src: src/index.html
+      dest: "/"
+
+    # Lets build the app and place it in the /js directory
+    js:
+    - src: src/app.js
+      name: app.js
+      dest: "/js"
+
+    # Lets build the stylesheet and place it at the /css directory
+    sass:
+    - src: src/assets/css/style.scss
+      dest: "/css"

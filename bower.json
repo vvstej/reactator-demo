@@ -1,0 +1,9 @@
+{
+    "name": "reactator",
+    "ignore": [
+        "node_modules",
+        "bower_components"
+    ],
+    "dependencies": {
+    }
+}
