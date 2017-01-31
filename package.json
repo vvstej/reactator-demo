@@ -74,7 +74,7 @@
     "jest-cli": "^14.1.0",
     "jsdoc": "^3.4.0",
     "jsdoc-babel": "^0.3.0",
-    "reactator-build": "^0.0.4"
+    "reactator-build": "^0.0.5"
   },
   "engines": {
     "node": "^6.3.1"
